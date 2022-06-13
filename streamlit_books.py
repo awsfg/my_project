@@ -81,6 +81,8 @@ with st.echo(code_location='below'):
     
     # уберем Mary и оставим только J.K. Rowling
     df.replace(to_replace='J.K. Rowling/Mary GrandPré', value = 'J.K. Rowling', inplace=True)
+    df['isbn13'] = df['isbn13'].fillna(0)
+    df[['isbn13']] = df[['isbn13']].astype(int)
     st.write(df)
 
     st.subheader('При помощи различных визуализаций проанализируем имеющийся датасет.')
