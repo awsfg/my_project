@@ -255,6 +255,7 @@ with st.echo(code_location='below'):
     st.markdown("")
     st.write("Топ наиболее оцениваемых авторов (средняя оценка которых > 4.3)")
     author_num = st.slider('Какое количество авторов необходимо вывести?', 1, 20, 10)
+    df[['average_rating']] = df[['average_rating']].astype(float)
     high_rated_author = df[df['average_rating']>=4.3]
     high_rated_author = high_rated_author.groupby('authors')['title'].count().reset_index().sort_values('title', ascending = False).head(author_num).set_index('authors')
     fig6 = plt.figure(figsize=(8,4))
