@@ -1,0 +1,16 @@
+seaborn
+folium
+isbnlib
+requests
+geopandas
+numpy
+pandas
+Shapely
+newspaper3k
+matplotlib
+plotly
+goodreads_api_client
+progressbar
+urllib3
+beautifulsoup4
+streamlit_folium
