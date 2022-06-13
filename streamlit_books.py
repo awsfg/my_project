@@ -196,13 +196,13 @@ with st.echo(code_location='below'):
                 year.append(details['Year'])
             except:
                 try: 
-                    book_detail = client.Book.show_by_isbn(isbn)
+                    book_detail = client.Book.show_by_isbn(str(isbn))
                     keys_wanted = ['publication_year']
                     reduced_book = {k:v for k,v in book_detail.items() if k in keys_wanted}
                     year.append((reduced_book['publication_year']))
                 except:
                     try:
-                        y = html(isbn)
+                        y = html(str(isbn))
                         year_extracted = reg(y) 
                         year.append(y)
                     except:
