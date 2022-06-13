@@ -1,7 +1,7 @@
 import os
 import re
 import folium
-import isbnlib
+from isbnlib import canonical, meta
 import requests
 import geopandas
 import numpy as np 
@@ -192,7 +192,7 @@ with st.echo(code_location='below'):
         pbar = ProgressBar()
         for isbn in pbar(df.isbn13):
             try:
-                details = isbnlib.meta(str(isbn))
+                details = meta(canonical(str(isbn)))
                 year.append(details['Year'])
             except:
                 try: 
